@@ -1,6 +1,21 @@
-require("./keepAlive");
-require('dotenv').config();
+// Serveur Express pour Render
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Bot actif ✅");
+});
+
+app.listen(3000, () => {
+  console.log("Serveur keep-alive lancé sur le port 3000");
+});
+
+
+// Bot Telrgram
+//require("./keepAlive");
+
 const TelegramBot = require('node-telegram-bot-api');
+require('dotenv').config();
 const axios = require('axios');
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
